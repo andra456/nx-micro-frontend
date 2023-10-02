@@ -1,0 +1,12 @@
+{
+  "pages": [
+    {
+      "chunkName": "feature-standard",
+      "path": "/standard",
+      "component": "feature",
+      "layout": "blank",
+      "isExact": true,
+      "isAuth": false
+    }
+  ]
+}

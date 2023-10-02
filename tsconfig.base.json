@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@config": ["config/index.ts"],
+      "@sfreport-container/component-feature": ["libs/component-feature/src/index.ts"],
+      "@sfreport-container/container/*": ["apps/container/src/*"],
+      "@sfreport-container/feature/*": ["apps/container/src/*"],
+      "@sfreport-container/utils": ["libs/utils/src/index.ts"],
+      "@sfreport-design-system": ["libs/ui-design-system/src/index.ts"],
+      "@sfreport-design-module/*": ["libs/ui-design-system/src/module/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

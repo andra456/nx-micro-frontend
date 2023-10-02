@@ -1,0 +1,105 @@
+{
+  "name": "feature-custom-onprem",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/feature-custom-onprem/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/feature-custom-onprem",
+        "index": "apps/feature-custom-onprem/src/index.html",
+        "baseHref": "/onprem",
+        "main": "apps/feature-custom-onprem/src/main.ts",
+        "tsConfig": "apps/feature-custom-onprem/tsconfig.app.json",
+        "assets": ["apps/feature-custom-onprem/src/favicon.ico", "apps/feature-custom-onprem/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/feature-custom-onprem/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/feature-custom-onprem/src/environments/environment.ts",
+              "with": "apps/feature-custom-onprem/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/feature-custom-onprem/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-custom-onprem:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-custom-onprem:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-custom-onprem:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/feature-custom-onprem/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-custom-onprem:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-custom-onprem:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-custom-onprem:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/feature-custom-onprem/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
