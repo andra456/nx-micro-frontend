@@ -18,7 +18,7 @@ export const AppProvider = ({ children, initialState = {} }: IAppProviderProps) 
   const [state, setActualState] = useState(initialState);
 
   const setState = useCallback((newState: any, preUpdate: any) => {
-    setActualState((prevState) => {
+    setActualState((prevState:any) => {
       if (preUpdate && preUpdate.call) {
         preUpdate();
       }
