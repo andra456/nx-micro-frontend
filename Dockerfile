@@ -1,5 +1,5 @@
 # 1. For build React app
-FROM node:lts AS development
+FROM node:18-alpine AS development
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . /app
 ENV CI=true
 ENV PORT=4200
 
-CMD [ "npm", "container:dev" ]
+CMD [ "yarn", "dev" ]
 
 FROM development AS build
 
@@ -34,7 +34,7 @@ RUN usermod -aG docker vscode
 
 # install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
 
 # 2. For Nginx setup
 FROM nginx:alpine
