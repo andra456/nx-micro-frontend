@@ -2422,14 +2422,7 @@
   dependencies:
     "@nx/next" "16.8.1"
 
-"@nrwl/nx-cloud@16.4.0":
-  version "16.4.0"
-  resolved "https://registry.npmjs.org/@nrwl/nx-cloud/-/nx-cloud-16.4.0.tgz"
-  integrity sha512-QitrYK6z9ceagetBlgLMZnC0T85k2JTk+oK0MxZ5p/woclqeYN7SiGNZgMzDq8TjJwt8Fm/MDnsSo3xtufmLBg==
-  dependencies:
-    nx-cloud "16.4.0"
-
-"@nrwl/nx-cloud@^16.4.0":
+"@nrwl/nx-cloud@16.4.0", "@nrwl/nx-cloud@^16.4.0":
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/@nrwl/nx-cloud/-/nx-cloud-16.4.0.tgz#0b551107eba1da5c99aa3af91940fb8495920358"
   integrity sha512-QitrYK6z9ceagetBlgLMZnC0T85k2JTk+oK0MxZ5p/woclqeYN7SiGNZgMzDq8TjJwt8Fm/MDnsSo3xtufmLBg==
