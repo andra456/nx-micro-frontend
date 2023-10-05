@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { useAppContext } from '../context/appsContext';
+
 import loadable from '@loadable/component';
 import { features, IFeatureList } from '@config';
 // wrapper using default
 import Wrapper from '../wrappers/default';
 
 function MainRouter() {
-  const { globalState } = useAppContext();
   const [isLoad, setIsLoad] = useState<boolean>(true);
 
   useEffect(() => {
@@ -16,7 +15,7 @@ function MainRouter() {
 
   const PrivateRoute = ({ ...rest }: IFeatureList) => {
     // Jika mengaktifkan auth buat kondisi di sini : rest.private dan token
-    if (rest.isAuth === true && globalState?.isLogin === false) {
+    if (rest.isAuth === true) {
       //history.push('/login');
     }
   };

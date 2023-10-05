@@ -13,10 +13,10 @@ const NavStandard = () => (
         <Link to="/standard">Home Standard Components</Link>
       </li>
       <li>
-        <Link to="/feature-standard-a">Feature Standard A</Link>
+        <Link to="/standrd/feature-standard-a">Feature Standard A</Link>
       </li>
       <li>
-        <Link to="/feature-standard-b">Feature Standard B</Link>
+        <Link to="/standard/feature-standard-b">Feature Standard B</Link>
       </li>
     </ul>
   </div>

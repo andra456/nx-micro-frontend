@@ -3,5 +3,5 @@ console.log(envRemotes);
 const remotes = envRemotes.split(',');
 module.exports = {
   name: 'container',
-  remotes,
+  remotes: ['feature', 'feature-custom-onprem'],
 };

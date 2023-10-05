@@ -2,8 +2,7 @@ import React, { Fragment, useState, useEffect, useRef } from 'react';
 // import { ThemeUI } from 'component-design-ui/src';
 import { QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
-import { AppProvider } from '../../context/appsContext';
-import { TypeLayout } from '@config';
+
 import { queryClient } from '../../query';
 import { Link } from 'react-router-dom';
 
@@ -49,9 +48,8 @@ function Wrapper({ children }: IWrapper) {
           <Link to="/sass">home container Sass</Link>
         </li>
       </ul>
-      <AppProvider>
-        <RecoilRoot>{children}</RecoilRoot>
-      </AppProvider>
+
+      <RecoilRoot>{children}</RecoilRoot>
     </QueryClientProvider>
   );
 }

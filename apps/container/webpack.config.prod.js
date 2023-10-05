@@ -24,14 +24,10 @@ const prodConfig = {
    * ]
    */
   remotes: [
-    ['feature-custom-onprem', 'http://localhost:4201/'],
-    ['feature', 'http://localhost:4203/'],
+    ['feature-custom-onprem', 'http://localhost:4202/'],
+    ['feature', 'http://localhost:4201/'],
   ],
 };
 
 // Nx plugins for webpack to build config object from Nx options and context.
-module.exports = composePlugins(
-  withNx(),
-  withReact(),
-  withModuleFederation(prodConfig)
-);
+module.exports = composePlugins(withNx(), withReact(), withModuleFederation(prodConfig));
