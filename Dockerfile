@@ -1,5 +1,5 @@
 # 1. For build React app
-FROM node:lts AS development
+FROM node:16.20.0-alpine AS development
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . /app
 ENV CI=true
 ENV PORT=4200
 
-CMD [ "npm", "container:dev" ]
+CMD [ "yarn", "dev" ]
 
 FROM development AS build
 
