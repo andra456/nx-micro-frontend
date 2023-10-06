@@ -1,5 +1,9 @@
 # 1. For build React app
+<<<<<<< HEAD
 FROM node:16.20.0 AS development
+=======
+FROM node:16.20.0-alpine AS development
+>>>>>>> baru
 
 # Set working directory
 WORKDIR /app
