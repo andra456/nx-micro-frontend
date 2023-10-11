@@ -2,7 +2,11 @@ import React from 'react';
 import { Button, Select, Form, Input } from 'antd';
 
 const onFinish = (values: any) => {
-  console.log('Success:', values);
+  if (values.company === 'onpremise') {
+    localStorage.setItem('customize', 'feature-standard-a');
+  } else {
+    localStorage.clear();
+  }
 };
 
 const onFinishFailed = (errorInfo: any) => {
@@ -37,7 +41,7 @@ const AuthPage = () => {
                 <Input.Password placeholder="Password" />
               </Form.Item>
 
-              <Form.Item<FieldType> name="password" label="Companies">
+              <Form.Item name="company" label="Companies">
                 <Select
                   placeholder="Choose company"
                   options={[

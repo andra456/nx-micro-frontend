@@ -4,10 +4,11 @@ import loadable from '@loadable/component';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { global } from '@sfreport-container/component-feature/module/styles/_global';
 
-const arrFeature = ['feature-a'];
+const arrFeature = localStorage.getItem('customize')?.split(',') ?? [];
 
 const FeatureA = loadable(() => import('../source/featureA'));
 const FeatureB = loadable(() => import('../source/featureB'));
+const Auth = loadable(() => import('../source/auth'));
 
 const LayoutWithSidebar = React.lazy(() => import('@sfreport-container/component-feature/module/layout/LayoutSidebar'));
 
@@ -50,6 +51,7 @@ export function FeatureStandard() {
     <React.Suspense fallback={null}>
       <div className={global}>
         <Routes>
+          <Route path="/" element={<Auth />} />
           <DynamicRoutes path="/feature-standard-a" keyIndex="feature-a" isSidebar element={<FeatureA />} />
           <DynamicRoutes path="/feature-standard-b" keyIndex="feature-b" isSidebar element={<FeatureB />} />
         </Routes>

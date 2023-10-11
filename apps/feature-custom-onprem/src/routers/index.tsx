@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import loadable from '@loadable/component';
+localStorage.getItem('customize')?.split(',') ?? [];
 
 const LayoutWithSidebar = React.lazy(() => import('@sfreport-container/component-feature/module/layout/LayoutSidebar'));
 const FeatureA = loadable(() => import('../source/customize/featureA'));
