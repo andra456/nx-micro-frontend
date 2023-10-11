@@ -9,8 +9,4 @@ const config = {
 };
 
 // Nx plugins for webpack to build config object from Nx options and context.
-module.exports = composePlugins(
-  withNx(),
-  withReact(),
-  withModuleFederation(config)
-);
+module.exports = composePlugins(withNx(), withReact(), withModuleFederation(config));

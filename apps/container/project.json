@@ -19,7 +19,9 @@
         "styles": [],
         "scripts": [],
         "isolatedConfig": true,
-        "webpackConfig": "apps/container/webpack.config.js"
+        "webpackConfig": "apps/container/webpack.config.js",
+        "outputFileName": "bundle.js",
+        "postcssConfig": "apps/container/postcss.config.js"
       },
       "configurations": {
         "development": {
@@ -36,7 +38,7 @@
             }
           ],
           "optimization": true,
-          "outputHashing": "all",
+          "outputHashing": "none",
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,

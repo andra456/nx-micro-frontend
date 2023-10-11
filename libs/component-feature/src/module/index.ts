@@ -1,5 +1,3 @@
-const Example = () => {
-  return null;
-};
-
-export default Example;
+// component
+export * from './components';
+export * from './styles';

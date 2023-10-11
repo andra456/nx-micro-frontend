@@ -17,12 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@config": ["config/index.ts"],
-      "@sfreport-container/component-feature": ["libs/component-feature/src/index.ts"],
+      "@sfreport-container/component-feature/*": ["libs/component-feature/src/*"],
       "@sfreport-container/container/*": ["apps/container/src/*"],
       "@sfreport-container/feature/*": ["apps/container/src/*"],
-      "@sfreport-container/utils": ["libs/utils/src/index.ts"],
-      "@sfreport-design-system": ["libs/ui-design-system/src/index.ts"],
-      "@sfreport-design-module/*": ["libs/ui-design-system/src/module/*"]
+      "@sfreport-container/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
