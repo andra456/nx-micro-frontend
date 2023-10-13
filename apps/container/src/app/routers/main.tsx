@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
 
 import loadable from '@loadable/component';
-import { features, IFeatureList } from '@config';
+// import { features, IFeatureList } from '@config';
 // wrapper using default
 import Wrapper from '../wrappers/default';
+
+const typeService = localStorage.getItem('type-services') ?? '';
 
 function MainRouter() {
   const [isLoad, setIsLoad] = useState<boolean>(true);
@@ -13,20 +14,15 @@ function MainRouter() {
     setIsLoad(false);
   }, []);
 
-  const PrivateRoute = ({ ...rest }: IFeatureList) => {
-    // Jika mengaktifkan auth buat kondisi di sini : rest.private dan token
-    if (rest.isAuth === true) {
-      //history.push('/login');
-    }
-  };
   const Standard = loadable(() => import(`feature/Module`));
-  const OnPrem = loadable(() => import(`feature-custom-onprem/Module`));
+  const Customize =
+    typeService === 'custom' ? loadable(() => import(`feature-custom-onprem/Module`)) : loadable(() => import(`./defaultNull`));
   // const OnSass = loadable(() => import(`feature-custom-sass/Module`));
 
   return (
     <Wrapper>
       <Standard />
-      <OnPrem />
+      <Customize />
     </Wrapper>
   );
 }
